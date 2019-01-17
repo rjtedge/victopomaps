@@ -1,0 +1,23 @@
+min-version: '1.4'
+class: FeatureSource
+sources:
+  shp:
+    protocol: shp
+    path: /home/ubuntu/workspace/el_morphology_line.shp
+   
+features:
+
+  cliffs:
+  - source: shp
+    path: /home/ubuntu/workspace/el_morphology_line.shp
+    name: cliff
+    where: FTYPE_CODE='cliff'
+ 
+
+cliffs:
+  stroke: "#B04BA9"
+  stroke-width: 0.2
+  symbolise:
+    interval: 1.0
+    line:
+      y2: 0.5

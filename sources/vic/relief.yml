@@ -1,0 +1,8 @@
+class: ReliefSource2
+contours: http://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/datavic/wfs
+attribute: altitude
+resolution: 15
+lightsources: 3
+exaggeration: 2.5
+altitude: 35
+opacity: 0.25

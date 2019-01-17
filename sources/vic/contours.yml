@@ -1,0 +1,684 @@
+min-version: '1.4'
+class: FeatureSource
+sources:
+  wfs:
+    protocol: wfs
+    url: http://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wfs
+  wfs2:
+    protocol: wfs2
+    url: http://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wfs    
+features:
+  
+  contours-10m:
+  - source: wfs
+    name: VMELEV_EL_CONTOUR
+    category: FEATURE_TYPE_CODE
+
+coastline:
+  fill: none
+  stroke: black
+  stroke-width: 0.12
+ferry-routes:
+  stroke: "#4985DF"
+  stroke-width: 0.25
+  stroke-dasharray: 1.4 0.7
+recreational-perimeters:
+  fill: none
+  stroke: black
+  stroke-width: 0.15
+  stroke-dasharray: 0.8 0.2
+fords:
+  stroke: black
+  stroke-dasharray: 0.5 0.4
+  stroke-width: 0.9
+  stroke-linecap: butt
+  [ Freeway, Highway, Arterial ]:
+    stroke-width: 1.1
+  [ Sub-Arterial, Collector ]:
+    stroke-width: 1.0
+railways:
+  dupe: hatching
+  stroke: black
+  stroke-width: 0.2
+  [ Broad, Standard ]:
+    stroke-width: 0.25
+  Narrow:
+    stroke-width: 0.2
+  [ hatching Broad, hatching Standard ]:
+    stroke-width: 0.8
+    stroke-dasharray: 0.25 2.5
+    stroke-dashoffset: 1.25
+  hatching Narrow:
+    stroke-width: 0.6
+    stroke-dasharray: 0.2 4
+    stroke-dashoffset: 2
+road-bridges:
+  dupe: outline
+  stroke-width: 0.4
+  stroke-linecap: square
+  [ Sealed, Unknown ]:
+    stroke: red
+  Unsealed:
+    stroke: "#FF7518"
+  [ Freeway, Highway, Arterial ]:
+    stroke-width: 0.6
+  [ Sub-Arterial, Collector ]:
+    stroke-width: 0.5
+  Local:
+    stroke-width: 0.4
+  [ Walking-Track, Bicycle-Track ]:
+    stroke: white
+    stroke-width: 0.25
+    stroke-linecap: butt
+  2wd:
+    stroke-width: 0.4
+    stroke-dasharray: 3 1
+  4wd:
+    stroke-width: 0.3
+    stroke-dasharray: 1.8 0.6
+  outline:
+    stroke: black
+    stroke-width: 0.6
+    stroke-linecap: butt
+    stroke-dasharray: none
+  [ outline Freeway, outline Highway, outline Arterial ]:
+    stroke-width: 0.8
+  [ outline Sub-Arterial, outline Collector ]:
+    stroke-width: 0.7
+  outline Local:
+    stroke-width: 0.6
+  [ outline Walking-Track, outline Bicycle-Track ]:
+    stroke: black
+    stroke-width: 0.5
+railway-bridges:
+  dupe:
+  - blockout
+  - hatching
+  stroke: black
+  stroke-width: 0.2
+  [ Broad, Standard ]:
+    stroke-width: 0.25
+  Narrow:
+    stroke-width: 0.2
+  [ hatching Broad, hatching Standard ]:
+    stroke-width: 0.8
+    stroke-dasharray: 0.25 2.5
+    stroke-dashoffset: 1.25
+  hatching Narrow:
+    stroke-width: 0.6
+    stroke-dasharray: 0.2 4
+    stroke-dashoffset: 2
+  [ blockout Broad, blockout Standard ]:
+    stroke-width: 0.9
+    stroke-dasharray: none
+    stroke: white
+  blockout Narrow:
+    stroke-width: 0.7
+    stroke-dasharray: none
+    stroke: white
+tanks:
+  symbol:
+    circle:
+      stroke: black
+      fill: white
+      stroke-width: 0.1
+      r: 0.3
+railway-stations:
+  symbol:
+    circle:
+      stroke: black
+      fill: red
+      stroke-width: 0.15
+      r: 0.4
+spot-heights:
+  symbol:
+    circle:
+      r: 0.2
+      stroke: none
+      fill: black
+transmission-lines:
+  dupe: dots
+  stroke: black
+  stroke-width: 0.15
+  stroke-dasharray: 8 2
+  stroke-dashoffset: 5
+  dots:
+    stroke-width: 0.4
+    stroke-dasharray: 0.1 9.9
+    stroke-dashoffset: -4
+    stroke-linecap: round
+state-border:
+  opacity: 0.5
+  dupe: hatching
+  stroke: black
+  stroke-width: 0.3
+  stroke-dasharray: 3 1 10 1
+  hatching:
+    stroke-width: 1.5
+    stroke-dasharray: 0.3 14.7
+    stroke-dashoffset: 13.8
+
+labels:
+  dupe: outline
+  stroke: none
+  fill: black
+  font-style: italic
+  font-family: Arial, Helvetica, sans-serif
+  outline:
+    stroke: white
+    fill: none
+    stroke-width: 0.25
+    stroke-opacity: 0.75
+  contours-10m:
+    fill: "#805100"
+    font-size: 1.4
+    letter-spacing: 0.05
+    format: "%d"
+    orientation: uphill
+    collate: true
+    min-radius: 5
+    max-turn: 20
+    sample: 10
+    minimum-length: 30
+    separation-all: 15
+    separation-along: 100
+    separation: 40
+  watercourses:
+    fill: "#1667DF"
+    letter-spacing: 0.1
+    word-spacing: 2.0
+    font-size: 1.4
+    collate: true
+    buffer: [ 2.5, 5 ]
+    max-turn: 90
+    separation: 80
+  watercourses L:
+    font-size: 1.4
+  watercourses M:
+    font-size: 1.6
+    buffer: [ 3, 6 ]
+  watercourses H:
+    font-size: 1.8
+    buffer: [ 3.5, 7 ]
+    separation: 120
+  waterfalls:
+    position: [ right, above, below, left, aboveright, belowright, aboveleft, belowleft ]
+    margin: 1.0
+    font-size: 1.3
+    fill: "#1667DF"
+    collate: true
+    separation: 20
+  sealed_hwy_fwy_art_roads:
+    font-size: 1.8
+    letter-spacing: 0.1
+    collate: true
+    buffer: 2.0
+    separation: 100
+    optional: true
+    word-spacing: 1.0
+  unsealed_hwy_fwy_art_roads:
+    font-size: 1.8
+    letter-spacing: 0.1
+    collate: true
+    buffer: 2.0
+    separation: 100
+    optional: true
+    word-spacing: 1.0
+  sealed_subarterial_collector_roads:
+    font-size: 1.6
+    letter-spacing: 0.1
+    collate: true
+    buffer: 2.0
+    separation: 100
+    optional: true
+  unsealed_subarterial_collector_roads:
+    font-size: 1.6
+    letter-spacing: 0.1
+    collate: true
+    buffer: 2.0
+    separation: 100
+    optional: true
+  sealed_local_roads:
+    font-size: 1.4
+    letter-spacing: 0.1
+    collate: true
+    buffer: 2.0
+    separation: 100
+    optional: true
+  unsealed_local_roads:
+    font-size: 1.4
+    letter-spacing: 0.1
+    collate: true
+    buffer: 2.0
+    separation: 100
+    optional: true
+  walk_cycle_tracks:
+    font-size: 1.4
+    letter-spacing: 0.1
+    collate: true
+    buffer: 1.7
+    separation: 100
+    optional: true
+  4wdtrack:
+    font-size: 1.4
+    letter-spacing: 0.1
+    collate: true
+    buffer: 1.7
+    separation: 100
+    optional: true
+  2wdtrack:
+    font-size: 1.4
+    letter-spacing: 0.1
+    collate: true
+    buffer: 1.7
+    separation: 100
+    optional: true
+  spot-heights:
+    format: "%d"
+    font-size: 1.4
+    margin: 0.7
+    position: [ right, left, above, below, aboveright, belowright, aboveleft, belowleft ]
+    optional: true
+  place-names:
+    position: [ over, right, above, below, left ]
+    font-size: 1.6
+    margin: 0.7
+    letter-spacing: 0.2
+  feature-names:
+    font-family: Calibri, Arial, Helvetica, sans-serif
+    font-style: normal
+    font-size: 1.8
+    margin: 0.7
+    letter-spacing: 0.1
+    position: [ over, right, above, below, left ]
+  gates:
+    symbol:
+      path:
+        stroke: black
+        stroke-width: 0.1
+        fill: none
+        d: M -0.4 -0.35 L 0.4 0.35 L 0.4 -0.35 L -0.4 0.35 Z
+
+# TODO: huts, snow poles & mine symbols from from mapscape/Local Features
+# TODO: water area names
+
+# https://emap.depi.vic.gov.au/arcgis/rest/services/add_map_layers/topography/MapServer/26 FEATURE_TYPE_CODE
+# connector_structure
+# watercourse_channel
+# watercourse_channel_drain
+# watercourse_drain
+# watercourse_river
+# watercourse_stream
+
+# https://emap.depi.vic.gov.au/arcgis/rest/services/add_map_layers/topography/MapServer/26 HIERARCHY
+# <Null>
+# H
+# L
+# M
+
+# https://emap.depi.vic.gov.au/arcgis/rest/services/add_map_layers/topography/MapServer/26 ORIGIN_DESC
+# <Null>
+# man-made
+# natural
+
+# https://emap.depi.vic.gov.au/arcgis/rest/services/add_map_layers/topography/MapServer/26 CONST_DESC
+# <Null>
+# channel
+# drain
+
+# https://emap.depi.vic.gov.au/arcgis/rest/services/add_map_layers/topography/MapServer/26 USAGE_DESC
+# <Null>
+# drainage
+# irrigation
+# water supply
+
+# http://services.land.vic.gov.au/geoserver_pWMS/wfs VMHYDRO.HY_WATERCOURSE FEATURE_TYPE_CODE
+# connector_channel
+# connector_channel_drain
+# connector_drain
+# connector_river
+# connector_stream
+# connector_structure
+# watercourse_channel
+# watercourse_channel_drain
+# watercourse_drain
+# watercourse_river
+# watercourse_stream
+
+# https://emap.depi.vic.gov.au/arcgis/rest/services/mapscape/MapServer/23 FEATURE_TYPE FEATURE_SUBTYPE
+# cableway
+#   chairlift
+#   poma tow
+#   t-bar tow
+# physiographic
+#   lava flow
+# pipeline
+#   gas belowground
+#   oil belowground
+# power line
+#   sub transmission line
+#   transmission line
+# recreational resource
+#   boat ramp
+
+# https://emap.depi.vic.gov.au/arcgis/rest/services/mapscape/MapServer/19 FEATURE_TYPE FEATURE_SUBTYPE (points)
+# admin facility
+#   custodial service
+#   customer service centre
+#   law court
+#   municipal office
+#   office
+#   post office
+#   prison
+#   research station
+#   sheriffs office
+#   tourist information centre
+#   weather station
+# agricultural area
+#   winery
+# building
+#   ruin
+# cableway
+#   cableway terminal
+# care facility
+#   aged care
+#   child care
+#   disability support centre
+# commercial facility
+#   accommodation
+#   entertainment centre
+#   food/beverage outlet
+#   shop
+#   shopping precinct
+# communication service
+#   broadcast radio facility
+#   broadcast television facility
+#   exchange
+#   radio communication facility
+# community space
+#   camp ground
+#   caravan park
+#   parking area
+#   rest area
+#   showground
+# community venue
+#   community centre
+#   hall
+#   neighbourhood house
+#   senior citizens
+# control point
+#   survey monument
+#   trig station
+# cultural centre
+#   aquarium
+#   arboretum
+#   art gallery
+#   library
+#   museum
+#   observatory
+# defence site
+#   barracks
+# dumping ground
+#   landfill
+#   transfer station
+# education centre
+#   further education
+#   primary school
+#   primary/secondary school
+#   school camp
+#   secondary school
+#   special school
+#   tertiary institution
+#   university
+# emergency facility
+#   ambulance station
+#   coast guard
+#   emergency coordination centre
+#   fire lookout
+#   fire station
+#   fire station (forest industry)
+#   lifesaving club
+#   neighbourhood safer place
+#   police station
+#   refuge
+#   ses unit
+# excavation site
+#   abandoned quarry
+#   adit
+#   mine
+#   quarry
+# health facility
+#   community health centre
+#   maternal/child health centre
+#   medical centre
+# hospital
+#   bush nursing hospital
+#   day procedure centre
+#   general hospital
+#   general hospital (emergency)
+# industrial facility
+#   abattoir
+#   brickworks
+#   dairy
+#   factory
+#   mill/timber operations
+# landmark
+#   cairn
+#   fountain
+#   lookout
+#   monument
+#   tourist attraction
+#   tower
+# pipeline facility
+#   pumping station
+#   treatment plant
+# place
+#   historic site
+# place of worship
+#   church
+#   gurdwara (sikh)
+#   monastry
+#   mondir (hindu)
+#   mosque
+#   synagogue
+#   vihara (buddhist)
+# power facility
+#   cooling tower
+#   gas power station
+#   hydro power station
+#   sub station
+#   wind farm
+#   wind turbine
+# recreational resource
+#   amphitheatre
+#   bmx track
+#   club house
+#   grandstand
+#   hut
+#   picnic site
+#   playground
+#   rotunda
+# reserve
+#   cemetery
+#   park
+#   zoo
+# residential building
+#   retirement village
+# sign
+#   emergency marker
+#   snow pole
+# sport facility
+#   aquatic centre
+#   boating club
+#   golf course
+#   greyhound racetrack
+#   horse racetrack
+#   motor track
+#   racecourse
+#   sports complex
+#   sports ground
+#   target range
+#   training track
+#   velodrome
+# storage facility
+#   boathouse
+#   depot
+#   gas tank
+#   silo
+#   stockyard
+#   tank
+
+# VMFEAT.FOI_POLYGON (FEATURE_TYPE FEATURE_SUBTYPE)
+# agricultural area
+#   farm
+#   vineyard
+# commercial facility
+#   business park
+#   shopping centre
+#   shopping precinct
+# community space
+#   camp ground
+#   caravan park
+#   parking area
+#   showground
+# defence site
+#   airforce base
+#   military area
+#   naval base
+# dumping ground
+#   landfill
+#   scrap yard
+#   spoil banks
+#   tailings
+# education centre
+#   education complex
+# emergency facility
+#   emergency complex
+# excavation site
+#   abandoned mine
+#   abandoned quarry
+#   mine
+#   quarry
+# hospital
+#   hospital complex
+# industrial facility
+#   proving ground
+# landmark
+#   tourist attraction
+# pipeline facility
+#   gas plant
+#   oil refinery
+#   oil terminal
+#   treatment plant
+# place
+#   historic site
+# power facility
+#   biomass power station
+#   coal power station
+#   gas power station
+#   hydro power station
+#   sub station
+#   terminal station
+# recreational resource
+#   bmx track
+#   group camp
+#   skate park
+# reserve
+#   amusement centre
+#   cemetery
+#   city square
+#   gardens
+#   park
+#   zoo
+# sport facility
+#   athletic field
+#   baseball field
+#   basketball court
+#   bowling green
+#   croquet green
+#   equestrian facility
+#   golf course
+#   golf driving range
+#   greyhound racetrack
+#   harness racetrack
+#   hockey ground
+#   horse racetrack
+#   motor track
+#   netball court
+#   racecourse
+#   sports complex
+#   sports ground
+#   target range
+#   tennis court
+#   training track
+#   velodrome
+# stockpile
+#   over burden pile
+# storage facility
+#   gas tank
+#   grain bunker
+#   hangar
+#   oil tank
+#   petroleum tank
+#   stockyard
+
+
+# VMELEV.EL_CONTOUR_1TO5M (FEATURE_TYPE_CODE)
+# contour
+# contour_approx
+# contour_dep
+# contour_dep_approx
+# contour_dep_index
+# contour_index
+
+
+# PTV.PTV_TRAM_TRACK_CENTRELINE
+# PTV.PTV_TRAM_STOP
+# PTV.PTV_TRAIN_TRACK_CENTRELINE
+# PTV.PTV_TRAIN_STATION_PLATFORM
+# PTV.PTV_TRAIN_STATION
+
+# CROWNLAND.PARKRES AREA_TYPE_ID AREA_TYPE
+#  9  NATURAL FEATURES RESERVE - BUSHLAND RESERVE
+# 21  NATURE CONSERVATION RESERVE - FLORA AND FAUNA RESERVE
+# 20  NATURE CONSERVATION RESERVE
+# 39  NATURAL FEATURES RESERVE
+# 16  NATURAL FEATURES RESERVE - RIVER MURRAY RESERVE
+#  6  NATIONAL PARK - SCHEDULE 2, NATIONAL PARKS ACT
+# 25  OTHER
+# 26  OTHER PARK - SCHEDULE 3, NATIONAL PARKS ACT
+#  4  HISTORIC RESERVE
+#  2  EDUCATION AREA
+# 22  NATURE CONSERVATION RESERVE - FLORA RESERVE
+# 17  NATURAL FEATURES RESERVE - SCENIC RESERVE
+# 23  NATURE CONSERVATION RESERVE - WILDLIFE RESERVE (NO HUNTING)
+# 42  NATURAL FEATURES RESERVE - WILDLIFE RESERVE (SGR CLASSIFICATION PENDING RESERVATION)
+# 14  NATURAL FEATURES RESERVE - LAKE RESERVE
+# 19  NATURAL FEATURES RESERVE - WILDLIFE RESERVE (HUNTING)
+# 41  NATURE CONSERVATION RESERVE - WILDLIFE RESERVE (NCR CLASSIFICATION PENDING RESERVATION)
+# 18  NATURAL FEATURES RESERVE - STREAMSIDE RESERVE
+# 30  REGIONAL PARK - NOT SCHEDULED UNDER NATIONAL PARKS ACT
+# 35  WILDERNESS PARK - SCHEDULE 2A, NATIONAL PARKS ACT
+# 34  STATE PARK - SCHEDULE 2B, NATIONAL PARKS ACT
+# 33  PROPOSED NATIONAL PARKS ACT PARK OR PARK ADDITION
+# 13  NATURAL FEATURES RESERVE - HIGHWAY PARK
+# 15  NATURAL FEATURES RESERVE - NATURAL FEATURES AND SCENIC RESERVE
+# 11  NATURAL FEATURES RESERVE - GEOLOGICAL RESERVE
+#  7  NATIONAL PARKS ACT SCHEDULE 4 PARK OR RESERVE
+# 24  METROPOLITAN PARK
+# 51  PV MANAGEMENT SERVICES AGREEMENT OTHER LAND
+# 10  NATURAL FEATURES RESERVE - CAVE RESERVE
+#  1  COASTAL RESERVE
+# 12  NATURAL FEATURES RESERVE - GIPPSLAND LAKES RESERVE
+# 50  PORT & COASTAL FACILITY
+# 49  RESERVOIR PARK
+# 47  MARINE NATIONAL PARK - SCHEDULE 7, NATIONAL PARKS ACT
+# 40  LIGHTHOUSE RESERVE
+# 48  MARINE SANCTUARY - SCHEDULE 8, NATIONAL PARKS ACT
+# 52  FOREST PARK
+# 27  PHILLIP ISLAND NATURE PARK
+
+
+
+
+

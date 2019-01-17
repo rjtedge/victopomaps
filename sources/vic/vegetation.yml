@@ -1,0 +1,20 @@
+min-version: '1.4'
+class: FeatureSource
+sources:
+  wfs:
+    protocol: wfs
+    url: http://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wfs
+features:
+  tree-cover:
+    source: wfs
+    name: VMVEG_TREE_DENSITY
+    category: TREE_DENSITY
+tree-cover:
+  stroke: none
+  fill: white
+  DENSE:
+    fill: "#C2FFC3"
+  MEDIUM:
+    fill: "#D7FFD7"
+  SCATTERED:
+    fill: "#EAFFEB"
